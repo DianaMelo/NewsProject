@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Stick+No+Bills:wght@300&display=swap');
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.title{
+  font-family: 'Stick No Bills', sans-serif;
+  font-size: 1.5em;
+}
+.title-big{
+  font-size: 5em;
+}
+.btn{
+  border: 1.5px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.btn-category{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.btn:hover{
+  border: 1.5px solid orange;
+}
+.btn-category:hover{
+  border: 1.5px solid #6683B0;
+}
+.blue{
+  color: #6683B0;
+  font-weight: bold;
+}
+.orange{
+  color: orange;
+}
+.text-content h5{
+  color:#333;
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.lateral{
+  margin-left: 10px;
+  background-color: rgb(193, 195, 196);
+}
+.divMiddle{
+  background-color: antiquewhite;
+}
+.news_title_1{
+  font-size: 1.1em;
+}
+.imgBig{
+  width: 50vw;
+  height: 60vh;
+}
+.img-normal{
+  width: 25vw;
+  height: 35vh;
+}
+.img-medium{
+  width: 25vw;
+  height: 35vh;
+}
+.img-lateral{
+  width: 18vw;
+  height:25vh;
+}
+.text-div{
+ box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.text-div h3, .div-big{
+  padding: 20px;
+}
+.readMore a{
+  padding: 20px;
+  color: orange;
+}
+.readMore a:hover{
+  color: #6683B0;
+}

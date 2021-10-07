@@ -1,0 +1,136 @@
+<div class="container-fluid mx-auto">
+
+<nav class=" navbar bg-light">
+  <form class="container-fluid justify-content-center">
+    <div class="row w-100 text-center">
+      <div class="col py-3">
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('pt', 'Portugal')">Portugal</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('gb', 'United Kingdom')">UK</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('ie', 'Ireland')">Ireland</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('nz', 'New Zealand')">New Zealand</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('au', 'Australia')">Australia</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('us', 'USA')">USA</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('ca', 'Canada')">Canada</button>
+        <button class="btn btn-dark me-2" type="button" (click)="getArticles('za', 'South Africa')">South Africa</button>
+      </div>
+    </div>
+    <div class="row w-100 text-center">
+      <div class="col p-2">
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('business')">Business</button>
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('entertainment')">Entertainment</button>
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('health')">Health</button>
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('science')">Science</button>
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('sports')">Sports</button>
+        <button class="btn btn-outline-dark btn-sm me-2 btn-category" type="button" (click)="getCategory('technology')">Technology</button>
+      </div>
+    </div>
+</form>
+</nav>
+
+<h1 class="p-2 mt-5">{{country}} latest news</h1>
+
+  <div class="row m-3 d-flex justify-content-center"> <!--divRowUnica-->
+
+    <div *ngFor="let article of articles; let i = index"><!--divNewsGrande-->
+      <div *ngIf="i == 0" class="row newsDivGrande mx-5">
+              <div class="col mb-5 mt-5">
+                <img [src]="article.urlToImage == null? imgNull : article.urlToImage"
+                alt="contentNews"
+                class="rounded hover-shadow imgBig">
+              </div>
+              <div class="col mb-5 mt-5 p-2 text-div">
+                    <h3 class="card-title">{{article.title}}</h3>
+                    <p class="mt-4 div-big">{{article.description}}</p>
+                    <p class="card-title mt-4 float-end"
+                    *ngFor="let details of article.source">
+                      {{article.author}}
+                    </p>
+                    <!-- <p class="card-title mt-4 float-end">{{article.author}} | {{article.source.name}}</p> -->
+                    <br>
+                    <p class="readMore text-end"><a href="{{article.url}}" target="_blank">Read more...</a></p>
+              </div>
+          </div>
+    </div><!--divNewsGrande END-->
+
+
+    <div class="col-8 mainDivLeft mt-4"><!--divNewsLEFT-->
+
+    <div class="row mx-5"><!--divNewsPequenos-->
+      <ng-container *ngFor="let article of articles; let i = index">
+        <ng-container *ngIf="i != 0 && i < 7">
+            <div class="col m-3 text-div my-4">
+              <img [src]="article.urlToImage == null? imgNull : article.urlToImage"
+              alt="contentNews"
+              class="rounded hover-shadow mb-3 img-normal">
+              <h6 class="card-title news_title_1">{{article.title}}</h6>
+              <p class="readMore text-end"><a href="{{article.url}}" target="_blank">Read more...</a></p>
+            </div>
+          </ng-container>
+        </ng-container>
+
+
+    <div class="divMiddle" *ngFor="let article of articles; let i = index" ><!--divNewsGrandePequenos-->
+      <div *ngIf="i == 7">
+          <div class="row text-div p-4">
+              <div class="col p-4 mx-auto">
+                <img [src]="article.urlToImage == null? imgNull : article.urlToImage"
+                alt="contentNews"
+                class="rounded hover-shadow img-medium">
+              </div>
+              <div class="col p-4">
+                    <h4 class="card-title ">{{article.title}}</h4>
+                    <h6 class="card-title mt-1">{{article.description}}</h6>
+                    <!-- <p class="card-title mt-1 float-end">{{article.author}} | {{article.source.name}}</p> -->
+                    <p class="card-title mt-1 float-end">{{article.author}}</p>
+                    <br>
+                    <p class="readMore text-end"><a href="{{article.url}}" target="_blank">Read more...</a></p>
+              </div>
+          </div>
+      </div>
+    </div><!--divNewsGrandePequenos END-->
+
+  <div class="row"><!--divNewsPequenos-->
+  <ng-container *ngFor="let article of articles; let i = index" >
+    <ng-container *ngIf="i > 7 && i < 12">
+        <div class="col m-3 text-div my-4">
+          <img [src]="article.urlToImage == null? imgNull : article.urlToImage"
+          alt="contentNews"
+          class="rounded hover-shadow mb-3 img-normal">
+          <h6 class="card-title news_title_1">{{article.title}}</h6>
+          <p class="readMore text-end"><a href="{{article.url}}" target="_blank">Read more...</a></p>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  </div><!--divNewsPequenos END-->
+
+    </div><!--divNewsLEFT END-->
+
+<!--lateral-->
+  <div class="col-3 d-block lateral mx-auto rounded">
+  <h4 class="mb-3 mt-3">Destaques</h4>
+      <div *ngFor="let article of articles; let i = index">
+        <div *ngIf="i >= 12">
+            <div class="row">
+                <div class="col mb-1 mt-1 mx-auto">
+                  <img [src]="article.urlToImage == null? imgNull : article.urlToImage"
+                  alt="contentNews"
+                  class="rounded hover-shadow img-lateral">
+                </div>
+                <div class="col">
+                      <h6 class="card-title mt-3">{{article.title}}</h6>
+                      <p class="readMore text-end"><a href="{{article.url}}" target="_blank">Read more...</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  </div> <!--divRowUnica-->
+  </div><!--container-->
+
+
+
+
+
